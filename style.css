@@ -4,17 +4,6 @@
   box-sizing: border-box;
 }
 
-ul {
-  padding-left: 2rem; /* Adds indentation */
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-li {
-  margin-bottom: 6px; /* Adds space between items */
-  line-height: 1.5;
-}
-
 :root {
   --primary: #6366f1;
   --secondary: #8b5cf6;
@@ -569,6 +558,11 @@ section {
   transition: all 0.3s ease;
   opacity: 0;
   animation: projectSlide 0.8s ease-out forwards;
+
+  /* NEW: Make card a flex column for bottom pin */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .project-card:nth-child(2) {
@@ -633,6 +627,9 @@ section {
 }
 
 .project-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Take remaining height */
   padding: 2rem;
 }
 
@@ -645,9 +642,12 @@ section {
 
 /* Project Links */
 .project-links {
+  margin-top: 1rem; /* 👈 adds a bit of space */
+  margin-top: auto; /* 👈 keeps it pinned to bottom */
+  padding-top: 1rem; /* optional for extra space */
   display: flex;
   gap: 1rem;
-  margin-top: 1.5rem;
+  justify-content: space-around;
 }
 
 .project-link {
